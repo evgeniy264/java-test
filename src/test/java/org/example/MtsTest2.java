@@ -193,16 +193,13 @@ public class MtsTest2 {
         List<WebElement> images = driver.findElements(By.xpath("//app-payment-container/descendant::input[@id='cc-number']/parent::*/following::img"));
         for (int i = 0; i < images.size(); i++) {
             String url = images.get(i).getAttribute("src");
-            if (url != null) {
-                double height = images.get(i).getSize().height;
-                double width = images.get(i).getSize().width;
-                Assertions.assertTrue(height > 0);
-                System.out.println("Высота картинки " + url + " равна " + height);
-                Assertions.assertTrue(width > 0);
-                System.out.println("Ширина картинки " + url + " равна " + width);
-            } else {
-                System.out.println("URL картинок пусты");
-            }
+            Assertions.assertTrue(url != null,"URL картинок пусты");
+            double height = images.get(i).getSize().height;
+            double width = images.get(i).getSize().width;
+            Assertions.assertTrue(height > 0);
+            System.out.println("Высота картинки " + url + " равна " + height);
+            Assertions.assertTrue(width > 0);
+            System.out.println("Ширина картинки " + url + " равна " + width);
         }
     }
 
